@@ -1,26 +1,28 @@
 import DataContainer from './DataContainer';
-import SubForm from './SubForm';
+import AddCustomerForm from './AddCustomerForm';
 import Header from './Header';
 
 import React, {useEffect, useState} from 'react';
-import { Route, Switch } from 'react-router-dom';
+// import { Route, Switch } from 'react-router-dom';
 
 import '../App.css';
 
 
 function App() {
-  const [subs, setSubs] = useState([])
+  const [customers, setCustomers] = useState([])
 
-  // fetch("http://localhost:9292/test")
-  //   .then((resp) => resp.json())
-  //   .then((data) => console.log(data));
+  useEffect(() => {
+    fetch("http://localhost:9292/customers")
+      .then((resp) => resp.json())
+      .then((data) => setCustomers(data));
+    }, [])
 
 
   return (
     <div>
       <Header />
-      <SubForm />
-      <DataContainer />
+      <AddCustomerForm />
+      <DataContainer customers={customers} />
     </div>
   );
 }
