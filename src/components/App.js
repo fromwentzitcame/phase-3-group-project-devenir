@@ -1,7 +1,6 @@
 import DataContainer from './DataContainer';
 import SubForm from './SubForm';
 import Header from './Header';
-import ScrollToTop from './ScrollToTop';
 
 import React, {useEffect, useState} from 'react';
 import { Route, Switch } from 'react-router-dom';
