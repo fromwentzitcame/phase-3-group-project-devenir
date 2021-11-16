@@ -1,11 +1,10 @@
 import React from 'react'
 import '../index.css'
 
-function DataContainer({customers}) {
-    // const displayCustomers = customers.map(customer => {<DataCard key={customer.id} customer={customer} />})
+function DataContainer({displayedCustomers, promoFilter, eventsFilter, birthdayFilter, textsFilter}) {
 
     function renderTableData() {
-        return customers.map(customer => {
+        return displayedCustomers.map(customer => {
            const { id, name, email, phone, birthday, created_at, updated_at } = customer
            return (
               <tr key={id}>
@@ -23,23 +22,38 @@ function DataContainer({customers}) {
 
     return (
         <div>
-        <table id='customers' class='margin' border="1">
-          <thead class='blue'>
-            <tr class='padding center'>
-              <th>Customer ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Birthday</th>
-              <th>Created At</th>
-              <th>Updated At</th>
-              <th>Edit Customer</th>
-            </tr>
-          </thead>
-          <tbody id="table-body">
-              {renderTableData()}
-          </tbody>
-        </table>
+            <h4>Filter Subscriber Data</h4>
+            <span>
+            <div> Promos and Sales:
+              <input type="checkbox" name="promo" onClick={promoFilter}></input>
+            </div>
+            <div> Community Events:
+              <input type="checkbox" name="promo" onClick={eventsFilter}></input>
+            </div>
+            <div> Birthday Promo:
+              <input type="checkbox" name="promo" onClick={birthdayFilter}></input>
+            </div>
+            <div> Texts:
+              <input type="checkbox" name="promo" onClick={textsFilter}></input>
+            </div>
+          </span>
+          <table id='customers' border="1">
+            <thead>
+              <tr>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Birthday</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Edit Customer</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+                {renderTableData()}
+            </tbody>
+          </table>
         </div>
     )
 }
