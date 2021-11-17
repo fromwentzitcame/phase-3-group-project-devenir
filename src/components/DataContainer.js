@@ -1,7 +1,7 @@
 import React from 'react'
 import '../index.css'
 
-function DataContainer({displayedCustomers, promoFilter, eventsFilter, birthdayFilter, textsFilter}) {
+function DataContainer({displayedCustomers, promoFilter, eventsFilter, birthdayFilter, textsFilter, deleteCustomer}) {
 
     function renderTableData() {
         return displayedCustomers.map(customer => {
@@ -15,10 +15,21 @@ function DataContainer({displayedCustomers, promoFilter, eventsFilter, birthdayF
                  <td>{birthday}</td>
                  <td>{created_at}</td>
                  <td>{updated_at}</td>
+                 <td><button>Edit</button><button onClick={() => handleDelete(customer)}>Delete</button></td>
               </tr>
            )
         })
      }
+ 
+    function handleDelete(customer) {
+      fetch(`http://localhost:9292/customers/${customer.id}`, {
+        method: "DELETE",
+        headers: {"Content-Type" : "application/json",}
+      })
+      .then(resp => resp.json())
+      .then(data => console.log(data))
+    deleteCustomer(customer)
+    }
 
     return (
         <div>

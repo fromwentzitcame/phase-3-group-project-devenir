@@ -91,7 +91,15 @@ function textsFilter(e) {
     .then((data) => setDisplayedCustomers(data));
   }
   else setDisplayedCustomers(customers)
-  }
+}
+
+// delete customer functions
+function deleteCustomer(clickedCustomer) {
+  const updatedCustomers = displayedCustomers.filter(
+    customer => customer.id !== clickedCustomer.id
+  )
+  setDisplayedCustomers(updatedCustomers)
+}
 
 
   return (
@@ -108,6 +116,7 @@ function textsFilter(e) {
         eventsFilter={eventsFilter}
         birthdayFilter={birthdayFilter}
         textsFilter={textsFilter}
+        deleteCustomer={deleteCustomer}
       />
     </div>
   );
