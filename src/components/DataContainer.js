@@ -1,8 +1,7 @@
 import React from 'react'
 import '../index.css'
 
-function DataContainer({displayedCustomers, promoFilter, eventsFilter, birthdayFilter, textsFilter, handleDeleteClick}) {
-    // const displayCustomers = customers.map(customer => {<DataCard key={customer.id} customer={customer} />})
+function DataContainer({displayedCustomers, promoFilter, eventsFilter, birthdayFilter, textsFilter}) {
 
     function renderTableData() {
         return displayedCustomers.map(customer => {
@@ -16,7 +15,6 @@ function DataContainer({displayedCustomers, promoFilter, eventsFilter, birthdayF
                  <td>{birthday}</td>
                  <td>{created_at}</td>
                  <td>{updated_at}</td>
-                 <td><button>Edit</button> <button onClick={handleDeleteClick}>Delete</button></td>
               </tr>
            )
         })
@@ -56,23 +54,6 @@ function DataContainer({displayedCustomers, promoFilter, eventsFilter, birthdayF
                 {renderTableData()}
             </tbody>
           </table>
-        <table id='customers' border="1">
-          <thead>
-            <tr>
-              <th>Customer ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Birthday</th>
-              <th>Created At</th>
-              <th>Updated At</th>
-              <th>Modify customer</th>
-            </tr>
-          </thead>
-          <tbody id="table-body">
-              {renderTableData()}
-          </tbody>
-        </table>
         </div>
     )
 }
