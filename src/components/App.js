@@ -93,22 +93,6 @@ function textsFilter(e) {
   else setDisplayedCustomers(customers)
   }
 
-  function deleteCustomer(clickedCustomer){
-    const updatedCustomers = displayedCustomers.filter(customer => customer.id !== clickedCustomer.id)
-    setDisplayedCustomers(updatedCustomers)
-  }
-
-function handleDeleteClick(customer){
-  
-fetch("http://localhost:9292/customers/:id", {
-  method: "DELETE",
-  header: {"Content-type": "application/json"}
-})
-.then(response => response.json())
-.then(data => console.log(data))
-deleteCustomer(customer)
-
-}
 
   return (
     <div>
@@ -124,7 +108,6 @@ deleteCustomer(customer)
         eventsFilter={eventsFilter}
         birthdayFilter={birthdayFilter}
         textsFilter={textsFilter}
-        handleDeleteClick={handleDeleteClick}
       />
     </div>
   );
