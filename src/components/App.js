@@ -1,4 +1,4 @@
-import DataContainer from "./DataContainer";
+import Customers from "./Customers";
 import AddCustomerForm from "./AddCustomerForm";
 import Header from "./Header";
 
@@ -43,6 +43,7 @@ function App() {
       .then(response => response.json())
       .then(data => {
         setCustomers([...customers, data])
+        setDisplayedCustomers([...displayedCustomers, data])
         setFormData({
           name: "",
           email: "",
@@ -53,6 +54,12 @@ function App() {
   }
 
 // display newsletter subscribers
+function filterOff(e) {
+  if (e.target.checked) {
+    setDisplayedCustomers(customers)
+  }
+}
+
 function promoFilter(e) {
   if (e.target.checked) {
     console.log("filter accessed")
@@ -101,6 +108,21 @@ function deleteCustomer(clickedCustomer) {
   setDisplayedCustomers(updatedCustomers)
 }
 
+// update Customers after edit
+function onUpdateCustomer(updatedCustomer) {
+  const updatedCustomers = displayedCustomers.map(
+    customer => {
+      if (customer.id === updatedCustomer.id) {
+        return updatedCustomer
+      }
+      else {
+        return customer
+      }
+    }
+  )
+  setDisplayedCustomers(updatedCustomers)
+}
+
 
   return (
     <div>
@@ -110,13 +132,15 @@ function deleteCustomer(clickedCustomer) {
         handleFormChange={handleFormChange}
         handleSubmit={handleSubmit}
       />
-      <DataContainer
+      <Customers
         displayedCustomers={displayedCustomers}
+        filterOff={filterOff}
         promoFilter={promoFilter}
         eventsFilter={eventsFilter}
         birthdayFilter={birthdayFilter}
         textsFilter={textsFilter}
         deleteCustomer={deleteCustomer}
+        onUpdateCustomer={onUpdateCustomer}
       />
     </div>
   );
