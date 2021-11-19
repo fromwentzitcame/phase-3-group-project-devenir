@@ -1,5 +1,5 @@
 import React from 'react'
-import {styled} from 'styled-components';
+import styled from 'styled-components';
 
 function Header() {
     return (
@@ -18,13 +18,16 @@ const HeaderTitle = styled.div`
 font-family: 'Genos', sans-serif;
 text-align: center;
 color: #FFFFFF;
-background-color: #707070;
+text-shadow: 1px 1px 3px #000000;
+/* background-color: #707070; */
 h1{
 font-size: 80px;
-margin-bottom: -20px;
-margin-top: -20px;
+margin-bottom: -15px;
+margin-top: 1px;
 }
 h3{
 font-size: 40px;
+margin-bottom: 20px;
+margin-top: 5px;
 }
 `

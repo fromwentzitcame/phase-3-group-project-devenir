@@ -4,7 +4,7 @@ function Filter({ filterOff, promoFilter, eventsFilter, birthdayFilter, textsFil
     return (
         <div>
             <h4>Filter Subscriber Data</h4>
-                <span style={filterStyle}>
+                <div style={filterStyle}>
                     <div>
                         <input type="radio" name="filter" onClick={filterOff}></input> All Customers
                     </div>
@@ -20,7 +20,7 @@ function Filter({ filterOff, promoFilter, eventsFilter, birthdayFilter, textsFil
                     <div>
                         <input type="radio" name="filter" onClick={textsFilter}></input> Texts
                     </div>
-                </span>
+                </div>
         </div>
     )
 }
@@ -28,5 +28,5 @@ function Filter({ filterOff, promoFilter, eventsFilter, birthdayFilter, textsFil
 export default Filter
 
 const filterStyle = {
-margin-bottom: 20px;
+marginBottom: "20px"
 }

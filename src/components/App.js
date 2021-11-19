@@ -148,9 +148,11 @@ export default App;
 const pageStyle = {
   backgroundColor: "#CCCCCC",
   borderTop: "solid 1px",
-  boxShadow: "0 -0.5px 5px",
+  boxShadow: "0 -0.5px 4px",
   minHeight: "100vh",
-  position: "relative"
+  position: "relative",
+  paddingLeft: "40px",
+  paddingRight: "40px"
 }
 
 const PortalTitle = styled.div`
