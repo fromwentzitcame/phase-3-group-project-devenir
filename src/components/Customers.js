@@ -43,13 +43,15 @@ function Customers({ displayedCustomers, filterOff, promoFilter, eventsFilter, b
   }
 
   function renderTableData() {
-    return (displayedCustomers.map(customer => <Customer
+    return (displayedCustomers.map(customer => {
+    console.log(customer.id)
+    return (<Customer
       key={customer.id}
       customer={customer}
       handleDelete={handleDelete}
       captureEdit={captureEdit}
       changeEditState={changeEditState}
-    />
+    />)}
     )
     )
   }
