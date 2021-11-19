@@ -1,12 +1,10 @@
 import React from 'react'
-import styled from 'styled-components';
 
 function Filter({ filterOff, promoFilter, eventsFilter, birthdayFilter, textsFilter }) {
     return (
         <div>
             <h4>Filter Subscriber Data</h4>
-            <FilterStyle>
-                <span>
+                <span style={filterStyle}>
                     <div>
                         <input type="radio" name="filter" onClick={filterOff}></input> All Customers
                     </div>
@@ -23,14 +21,12 @@ function Filter({ filterOff, promoFilter, eventsFilter, birthdayFilter, textsFil
                         <input type="radio" name="filter" onClick={textsFilter}></input> Texts
                     </div>
                 </span>
-            </FilterStyle>
-
         </div>
     )
 }
 
 export default Filter
 
-const FilterStyle = styled.div`
+const filterStyle = {
 margin-bottom: 20px;
-`
+}
