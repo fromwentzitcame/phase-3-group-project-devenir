@@ -6,7 +6,7 @@ function Header() {
         <div>
             <HeaderTitle>
                 <h1>Devenir</h1>
-                <h3>Athleisure for Self-Actualization</h3>
+                <h3>Enterprise Data Management</h3>
             </HeaderTitle>
         </div>
     )
